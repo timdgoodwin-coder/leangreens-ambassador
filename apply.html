@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply to be an Ambassador — Lean Greens</title>
+  <meta name="description" content="Apply to join the Lean Greens Ambassador Programme. Takes 2 minutes. Get 30% off your first order and earn 10% lifetime commission.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root{
+      --forest:   #1B3D0C;
+      --forest-2: #2B5A0E;
+      --mid:      #4D8C1F;
+      --bright:   #6AAF2A;
+      --light:    #C8E6A0;
+      --pale:     #EEF7E4;
+      --cream:    #F6F2EB;
+      --white:    #FFFFFF;
+      --ink:      #18180F;
+      --muted:    #5C5C52;
+      --border:   #DDE8CC;
+      --r:        12px;
+    }
+
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;font-size:16px}
+
+    /* ── NAV ── */
+    nav{
+      position:sticky;top:0;z-index:100;
+      background:var(--forest);
+      padding:0 48px;height:60px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .nav-logo img{height:28px;display:block}
+    .nav-back{
+      background:rgba(255,255,255,.1);color:rgba(255,255,255,.75);
+      font-size:13px;font-weight:500;
+      padding:8px 18px;border-radius:100px;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.15);
+      transition:background .2s;
+    }
+    .nav-back:hover{background:rgba(255,255,255,.18);color:var(--white)}
+
+    /* ── HERO STRIP ── */
+    .page-hero{
+      background:var(--forest);
+      padding:56px 48px 64px;
+      text-align:center;
+      position:relative;overflow:hidden;
+    }
+    .page-hero::after{
+      content:'';position:absolute;bottom:0;left:0;right:0;height:80px;
+      background:linear-gradient(to bottom,transparent,var(--cream));
+    }
+    .eyebrow{
+      display:inline-block;
+      border:1px solid rgba(200,230,160,.35);
+      background:rgba(200,230,160,.1);
+      color:var(--light);
+      font-size:11px;font-weight:500;
+      letter-spacing:.1em;text-transform:uppercase;
+      padding:5px 16px;border-radius:100px;
+      margin-bottom:24px;
+    }
+    h1{
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(32px,5vw,50px);
+      line-height:1.1;letter-spacing:-.025em;
+      color:var(--white);margin-bottom:14px;
+    }
+    h1 em{font-style:italic;color:var(--light)}
+    .hero-sub{
+      font-size:16px;color:rgba(255,255,255,.6);
+      font-weight:300;max-width:460px;margin:0 auto;
+    }
+
+    /* ── FORM WRAPPER ── */
+    .form-wrap{
+      max-width:600px;margin:0 auto;
+      padding:0 24px 80px;
+    }
+
+    /* ── PROGRESS ── */
+    .progress-row{
+      display:flex;gap:6px;margin-bottom:36px;margin-top:-4px;
+    }
+    .progress-step{
+      flex:1;height:3px;border-radius:3px;
+      background:var(--border);transition:background .3s;
+    }
+    .progress-step.done{background:var(--bright)}
+
+    /* ── CARD ── */
+    .form-card{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:var(--r);
+      padding:36px;
+      box-shadow:0 2px 12px rgba(0,0,0,.04);
+    }
+
+    .section-label{
+      font-size:11px;font-weight:500;color:var(--mid);
+      letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;
+    }
+    h2{
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(22px,3vw,30px);
+      line-height:1.15;letter-spacing:-.02em;
+      color:var(--ink);margin-bottom:28px;
+    }
+    h2 em{font-style:italic;color:var(--mid)}
+
+    /* ── FIELD ── */
+    .field{margin-bottom:22px}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    label.field-label{
+      display:block;font-size:13px;font-weight:500;
+      color:var(--ink);margin-bottom:7px;
+    }
+    label.field-label span.req{color:var(--bright);margin-left:2px}
+    input[type=text],input[type=email],input[type=date],select,textarea{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:11px 14px;
+      font-family:'DM Sans',sans-serif;
+      font-size:14px;color:var(--ink);
+      background:var(--cream);
+      outline:none;
+      transition:border-color .18s,box-shadow .18s;
+      -webkit-appearance:none;appearance:none;
+    }
+    input[type=text]:focus,input[type=email]:focus,input[type=date]:focus,select:focus,textarea:focus{
+      border-color:var(--bright);
+      box-shadow:0 0 0 3px rgba(106,175,42,.15);
+      background:var(--white);
+    }
+    textarea{resize:vertical;min-height:110px;line-height:1.6}
+    select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%235C5C52' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+
+    /* social handle prefix */
+    .handle-wrap{position:relative}
+    .handle-prefix{
+      position:absolute;left:14px;top:50%;transform:translateY(-50%);
+      font-size:14px;color:var(--muted);pointer-events:none;
+    }
+    .handle-wrap input{padding-left:28px}
+
+    /* affiliate handle prefix — wider to fit URL */
+    .handle-wrap.url-prefix .handle-prefix{
+      font-size:13px;font-weight:500;color:var(--mid);
+      white-space:nowrap;
+    }
+    .handle-wrap.url-prefix input{padding-left:132px}
+    .handle-preview{
+      font-size:12px;color:var(--mid);margin-top:6px;
+      font-weight:300;min-height:18px;transition:opacity .2s;
+    }
+    .handle-preview.empty{opacity:0}
+
+    /* ── CHECKBOXES ── */
+    .check-group{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+    .check-item{display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+    .check-item input[type=checkbox]{
+      width:18px;height:18px;flex-shrink:0;
+      margin-top:2px;cursor:pointer;
+      accent-color:var(--bright);
+    }
+    .check-label{font-size:14px;color:var(--muted);line-height:1.5}
+    .check-label strong{color:var(--ink)}
+
+    /* ── DIVIDER ── */
+    .divider{
+      border:none;border-top:1px solid var(--border);
+      margin:28px 0;
+    }
+
+    /* ── PLATFORM ROW ── */
+    .platform-label{
+      display:flex;align-items:center;gap:8px;
+      font-size:13px;font-weight:500;color:var(--ink);
+      margin-bottom:10px;
+    }
+    .platform-label svg{opacity:.7}
+    .platform-label .badge{
+      font-size:11px;font-weight:500;
+      background:var(--pale);color:var(--mid);
+      border:1px solid var(--light);
+      padding:2px 9px;border-radius:100px;
+    }
+
+    /* ── SUBMIT ── */
+    .submit-btn{
+      width:100%;
+      background:var(--forest);color:var(--white);
+      font-family:'DM Sans',sans-serif;
+      font-size:15px;font-weight:500;
+      padding:16px 24px;border-radius:100px;
+      border:none;cursor:pointer;
+      transition:background .2s,transform .15s;
+      margin-top:4px;
+    }
+    .submit-btn:hover{background:var(--forest-2);transform:translateY(-1px)}
+    .submit-btn:active{transform:translateY(0)}
+    .submit-note{
+      font-size:12px;color:var(--muted);text-align:center;
+      margin-top:14px;font-weight:300;
+    }
+
+    /* ── BENEFIT PILLS ── */
+    .benefit-pills{
+      display:flex;gap:8px;flex-wrap:wrap;
+      margin-bottom:32px;
+    }
+    .bp{
+      background:var(--pale);color:var(--forest-2);
+      border:1px solid var(--light);
+      font-size:12px;font-weight:500;
+      padding:5px 14px;border-radius:100px;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-box{
+      display:none;
+      text-align:center;padding:48px 32px;
+    }
+    .success-icon{font-size:48px;margin-bottom:16px}
+    .success-box h2{margin-bottom:12px}
+    .success-box p{font-size:15px;color:var(--muted);font-weight:300;max-width:380px;margin:0 auto 28px}
+    .back-link{
+      display:inline-block;
+      background:var(--bright);color:var(--white);
+      font-size:14px;font-weight:500;
+      padding:12px 28px;border-radius:100px;
+      text-decoration:none;
+      transition:background .2s;
+    }
+    .back-link:hover{background:var(--mid)}
+
+    /* ── FOOTER ── */
+    footer{
+      background:var(--forest);
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:24px 48px;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:12px;
+    }
+    .footer-logo img{height:22px;opacity:.55}
+    footer p{font-size:12px;color:rgba(255,255,255,.3)}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:640px){
+      nav{padding:0 20px}
+      .page-hero{padding:48px 20px 56px}
+      .form-wrap{padding:0 16px 60px}
+      .form-card{padding:24px 20px}
+      .field-row{grid-template-columns:1fr}
+      footer{padding:20px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="https://www.leangreensaffiliate.com/images/lean%20greens%20white%20logo.png" alt="Lean Greens" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-family:'DM Serif Display',serif;font-size:18px;color:#fff;letter-spacing:-.02em">Lean Greens</span>
+  </a>
+  <a href="index.html" class="nav-back" id="nav-back">← Back to programme</a>
+</nav>
+
+<!-- HERO STRIP -->
+<div class="page-hero">
+  <div class="eyebrow">Ambassador Application</div>
+  <h1>Join the <em>ambassador<br>programme</em></h1>
+  <p class="hero-sub">Takes 2 minutes. We reply within 48 hours.</p>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap">
+  <!-- benefit pills -->
+  <div class="benefit-pills" style="justify-content:center;margin-top:32px">
+    <span class="bp">30% off your first order</span>
+    <span class="bp">10% lifetime commission</span>
+    <span class="bp">No posting minimums</span>
+  </div>
+
+  <div class="form-card">
+
+    <!-- SUCCESS STATE (hidden until submit) -->
+    <div class="success-box" id="success-box">
+      <div class="success-icon">🌿</div>
+      <h2>Application <em>received!</em></h2>
+      <p>Thanks for applying. We review every application personally and will be in touch within 48 hours.</p>
+      <a href="index.html" class="back-link">Back to the programme</a>
+    </div>
+
+    <!-- FORM BODY -->
+    <div id="form-body">
+      <div class="section-label">Your details</div>
+      <h2>Tell us about <em>yourself</em></h2>
+
+      <!--
+        ACTION: Replace the Formspree URL below with your own.
+        1. Go to https://formspree.io
+        2. Create a free form pointing to tim@leangreens.com
+        3. Paste your unique form ID in place of "YOUR_FORM_ID"
+      -->
+      <form id="apply-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+        <!-- Hidden redirect / subject fields -->
+        <input type="hidden" name="_subject" value="New Lean Greens Ambassador Application">
+        <input type="hidden" name="_next" value="">
+
+        <!-- Name row -->
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="first_name">First name <span class="req">*</span></label>
+            <input type="text" id="first_name" name="first_name" placeholder="Jane" required>
+          </div>
+          <div class="field">
+            <label class="field-label" for="last_name">Last name <span class="req">*</span></label>
+            <input type="text" id="last_name" name="last_name" placeholder="Smith" required>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label class="field-label" for="email">Email address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+        </div>
+
+        <!-- Date of birth -->
+        <div class="field">
+          <label class="field-label" for="dob">Date of birth <span class="req">*</span></label>
+          <input type="date" id="dob" name="date_of_birth" required>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Social platforms -->
+        <div class="section-label" style="margin-bottom:18px">Your platforms</div>
+
+        <!-- Instagram -->
+        <div class="field">
+          <div class="platform-label">
+            <svg width="16" height="16" viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            Instagram <span class="badge">Recommended</span>
+          </div>
+          <div class="handle-wrap">
+            <span class="handle-prefix">@</span>
+            <input type="text" id="instagram" name="instagram_handle" placeholder="yourhandle">
+          </div>
+        </div>
+
+        <!-- TikTok -->
+        <div class="field">
+          <div class="platform-label">
+            <svg width="14" height="16" viewBox="0 0 448 512" fill="currentColor"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+            TikTok
+          </div>
+          <div class="handle-wrap">
+            <span class="handle-prefix">@</span>
+            <input type="text" id="tiktok" name="tiktok_handle" placeholder="yourhandle">
+          </div>
+        </div>
+
+        <!-- YouTube -->
+        <div class="field">
+          <div class="platform-label">
+            <svg width="16" height="12" viewBox="0 0 576 512" fill="currentColor"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+            YouTube / other
+          </div>
+          <div class="handle-wrap">
+            <span class="handle-prefix" style="font-size:13px;color:var(--muted)">↗</span>
+            <input type="text" id="youtube" name="youtube_or_other" placeholder="Channel URL or handle">
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Audience size -->
+        <div class="field">
+          <label class="field-label" for="audience">Approximate combined following <span class="req">*</span></label>
+          <select id="audience" name="audience_size" required>
+            <option value="" disabled selected>Select a range</option>
+            <option value="Under 1,000">Under 1,000</option>
+            <option value="1,000–5,000">1,000 – 5,000</option>
+            <option value="5,000–10,000">5,000 – 10,000</option>
+            <option value="10,000–50,000">10,000 – 50,000</option>
+            <option value="50,000–100,000">50,000 – 100,000</option>
+            <option value="100,000+">100,000+</option>
+          </select>
+        </div>
+
+        <!-- Content niche -->
+        <div class="field">
+          <label class="field-label" for="niche">What best describes your content? <span class="req">*</span></label>
+          <select id="niche" name="content_niche" required>
+            <option value="" disabled selected>Choose a category</option>
+            <option>Morning routines &amp; habits</option>
+            <option>Fitness &amp; training</option>
+            <option>Wellness &amp; mindset</option>
+            <option>Nutrition &amp; food</option>
+            <option>Home &amp; family life</option>
+            <option>Work &amp; productivity</option>
+            <option>Lifestyle &amp; general</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <!-- Why apply -->
+        <div class="field">
+          <label class="field-label" for="why">Why do you want to become a Lean Greens ambassador? <span class="req">*</span></label>
+          <textarea id="why" name="why_apply" placeholder="Tell us why you're interested and how Lean Greens fits with what you create…" required></textarea>
+        </div>
+
+        <!-- Have you tried it -->
+        <div class="field">
+          <label class="field-label" for="tried">Have you tried Lean Greens before?</label>
+          <select id="tried" name="tried_product">
+            <option value="" disabled selected>Select…</option>
+            <option>Yes, I'm already a customer</option>
+            <option>No, but I'd like to try it</option>
+            <option>No, I haven't tried it yet</option>
+          </select>
+        </div>
+
+        <!-- Preferred affiliate handle -->
+        <div class="field">
+          <label class="field-label" for="affiliate_handle">Preferred affiliate handle <span class="req">*</span></label>
+          <div class="handle-wrap url-prefix">
+            <span class="handle-prefix">leangreens.com/</span>
+            <input type="text" id="affiliate_handle" name="affiliate_handle"
+              placeholder="yourname" maxlength="40"
+              autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+              required>
+          </div>
+          <p class="handle-preview empty" id="handle-preview">Your link: leangreens.com/<span id="handle-preview-slug"></span></p>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Checkboxes -->
+        <div class="check-group">
+          <label class="check-item" id="age-check-label">
+            <input type="checkbox" id="age_confirm" name="age_confirmed" value="yes" required>
+            <span class="check-label"><strong>I confirm I am 18 years of age or older</strong></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="terms_confirm" name="terms_agreed" value="yes" required>
+            <span class="check-label">I agree to the <a href="https://leangreens.com/pages/ambassador-terms" target="_blank" style="color:var(--mid)">Ambassador Terms &amp; Conditions</a> and understand commission is paid on confirmed sales.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Submit my application →</button>
+        <p class="submit-note">We reply within 48 hours. Your details are only used for this programme.</p>
+
+      </form>
+    </div><!-- /form-body -->
+
+  </div><!-- /form-card -->
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://www.leangreensaffiliate.com/images/lean%20greens%20white%20logo.png" alt="Lean Greens" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-size:13px;color:rgba(255,255,255,.4)">Lean Greens</span>
+  </div>
+  <p>© 2025 Lean Greens. All rights reserved.</p>
+</footer>
+
+<script>
+  // Affiliate handle — live slug sanitisation
+  const handleInput = document.getElementById('affiliate_handle');
+  const preview     = document.getElementById('handle-preview');
+  const previewSlug = document.getElementById('handle-preview-slug');
+
+  handleInput.addEventListener('input', function() {
+    // Lowercase, keep only a-z 0-9 and hyphens, collapse multiple hyphens
+    const slug = this.value
+      .toLowerCase()
+      .replace(/[^a-z0-9-]/g, '')
+      .replace(/-{2,}/g, '-');
+    this.value = slug;
+    if (slug) {
+      previewSlug.textContent = slug;
+      preview.classList.remove('empty');
+    } else {
+      previewSlug.textContent = '';
+      preview.classList.add('empty');
+    }
+  });
+
+  const form = document.getElementById('apply-form');
+  const btn  = document.getElementById('submit-btn');
+  const body = document.getElementById('form-body');
+  const success = document.getElementById('success-box');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Basic validation feedback
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      el.style.borderColor = '';
+      if (el.type === 'checkbox' && !el.checked) {
+        el.closest('.check-item').querySelector('.check-label').style.color = '#c0392b';
+        valid = false;
+      } else if (el.type !== 'checkbox' && !el.value.trim()) {
+        el.style.borderColor = '#c0392b';
+        valid = false;
+      }
+    });
+    if (!valid) {
+      btn.textContent = 'Please complete all required fields';
+      setTimeout(() => btn.textContent = 'Submit my application →', 2500);
+      return;
+    }
+
+    // Submit to Formspree (or handle mailto fallback)
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const action = form.action;
+
+    // If Formspree ID not yet set, use mailto fallback
+    if (action.includes('YOUR_FORM_ID')) {
+      // Build mailto
+      const data = new FormData(form);
+      let body_text = 'New Lean Greens Ambassador Application\n\n';
+      data.forEach((val, key) => { body_text += key + ': ' + val + '\n'; });
+      window.location.href = 'mailto:tim@leangreens.com'
+        + '?subject=' + encodeURIComponent('New Lean Greens Ambassador Application')
+        + '&body=' + encodeURIComponent(body_text);
+      showSuccess();
+      return;
+    }
+
+    try {
+      const res = await fetch(action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        showSuccess();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      btn.textContent = 'Something went wrong — please try again';
+      btn.disabled = false;
+    }
+  });
+
+  function showSuccess() {
+    body.style.display = 'none';
+    success.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

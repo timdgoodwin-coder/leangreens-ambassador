@@ -1,0 +1,16 @@
+# Antigravity skill folders
+.firecrawl/
+marketingskills/
+superpowers/
+ui-ux-pro-max-skill/
+
+# BLAST Framework doc (local reference only)
+BLAST\ Framework
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

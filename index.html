@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambassador Programme — Lean Greens</title>
+  <meta name="description" content="Join the Lean Greens Ambassador Programme. Get 30% off your first order and earn 10% lifetime commission on every sale you drive.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root{
+      --forest:   #1B3D0C;
+      --forest-2: #2B5A0E;
+      --mid:      #4D8C1F;
+      --bright:   #6AAF2A;
+      --light:    #C8E6A0;
+      --pale:     #EEF7E4;
+      --cream:    #F6F2EB;
+      --white:    #FFFFFF;
+      --ink:      #18180F;
+      --muted:    #5C5C52;
+      --border:   #DDE8CC;
+      --r:        12px;
+    }
+
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:'DM Sans',sans-serif;
+      background:var(--cream);
+      color:var(--ink);
+      line-height:1.65;
+      font-size:16px;
+    }
+
+    /* ── NAV ── */
+    nav{
+      position:sticky;top:0;z-index:100;
+      background:var(--forest);
+      padding:0 48px;
+      height:60px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .nav-logo img{height:28px;display:block}
+    .nav-cta{
+      background:var(--bright);color:var(--white);
+      font-size:13px;font-weight:500;
+      padding:8px 20px;border-radius:100px;
+      text-decoration:none;
+      transition:background .2s,transform .15s;
+    }
+    .nav-cta:hover{background:var(--light);color:var(--forest)}
+
+    /* ── HERO (split layout) ── */
+    .hero{
+      background:var(--forest);
+      min-height:92vh;
+      display:flex;align-items:stretch;
+      overflow:hidden;
+      position:relative;
+    }
+    /* soft radial light behind product */
+    .hero::before{
+      content:'';
+      position:absolute;
+      right:-6%;top:50%;
+      transform:translateY(-50%);
+      width:70vw;height:70vw;
+      max-width:820px;max-height:820px;
+      border-radius:50%;
+      background:radial-gradient(ellipse at center,rgba(106,175,42,.28) 0%,rgba(43,90,14,.14) 45%,transparent 72%);
+      pointer-events:none;
+    }
+    /* cream fade at the very bottom */
+    .hero::after{
+      content:'';
+      position:absolute;bottom:0;left:0;right:0;height:100px;
+      background:linear-gradient(to bottom,transparent,var(--cream));
+      pointer-events:none;
+    }
+    .hero-inner{
+      width:100%;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+      max-width:1200px;
+      margin:0 auto;
+      padding:100px 64px 60px;
+      gap:40px;
+      position:relative;z-index:1;
+    }
+    /* LEFT copy column */
+    .hero-copy{
+      display:flex;flex-direction:column;
+      align-items:flex-start;
+    }
+    .eyebrow{
+      display:inline-block;
+      border:1px solid rgba(200,230,160,.35);
+      background:rgba(200,230,160,.1);
+      color:var(--light);
+      font-size:11px;font-weight:500;
+      letter-spacing:.1em;text-transform:uppercase;
+      padding:5px 16px;border-radius:100px;
+      margin-bottom:28px;
+    }
+    h1{
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(40px,5.5vw,70px);
+      line-height:1.04;
+      letter-spacing:-.03em;
+      color:var(--white);
+      margin-bottom:22px;
+    }
+    h1 em{font-style:italic;color:var(--light)}
+    .hero-sub{
+      font-size:17px;color:rgba(255,255,255,.65);
+      font-weight:300;max-width:420px;
+      margin-bottom:36px;line-height:1.7;
+    }
+    .hero-cta-group{
+      display:flex;flex-direction:column;
+      align-items:flex-start;gap:12px;
+    }
+    .btn-primary{
+      display:inline-block;
+      background:var(--bright);color:var(--white);
+      font-size:15px;font-weight:500;
+      padding:16px 38px;border-radius:100px;
+      text-decoration:none;
+      transition:background .2s,transform .15s;
+      box-shadow:0 6px 24px rgba(106,175,42,.35);
+    }
+    .btn-primary:hover{background:var(--light);color:var(--forest);transform:translateY(-1px)}
+    .hero-note{font-size:12px;color:rgba(255,255,255,.35)}
+    /* proof chips row */
+    .hero-chips{
+      display:flex;gap:10px;flex-wrap:wrap;
+      margin-top:32px;
+    }
+    .hero-chip{
+      display:flex;align-items:center;gap:7px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(200,230,160,.2);
+      border-radius:100px;
+      padding:7px 14px;
+      font-size:12px;font-weight:400;color:rgba(255,255,255,.7);
+    }
+    .hero-chip strong{color:var(--light);font-weight:600;font-size:13px}
+    /* RIGHT product column */
+    .hero-visual{
+      position:relative;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .hero-product-img{
+      width:100%;
+      max-width:520px;
+      position:relative;z-index:2;
+      filter:drop-shadow(0 40px 80px rgba(0,0,0,.5));
+      animation:float 6s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-14px)}
+    }
+    /* floating badge — commission */
+    .hero-badge{
+      position:absolute;
+      background:var(--white);
+      border-radius:14px;
+      padding:12px 16px;
+      box-shadow:0 12px 32px rgba(0,0,0,.22);
+      z-index:3;
+      animation:float 6s ease-in-out infinite;
+    }
+    .hero-badge.badge-commission{
+      bottom:22%;left:-4%;
+      animation-delay:-2s;
+    }
+    .hero-badge.badge-discount{
+      top:22%;right:-2%;
+      animation-delay:-4s;
+    }
+    .badge-val{
+      font-family:'DM Serif Display',serif;
+      font-size:24px;color:var(--forest);
+      line-height:1;margin-bottom:2px;
+    }
+    .badge-lbl{
+      font-size:11px;color:var(--muted);font-weight:500;
+      white-space:nowrap;
+    }
+    /* mobile */
+    @media(max-width:840px){
+      .hero{min-height:auto}
+      .hero::before{display:none}
+      .hero-inner{
+        grid-template-columns:1fr;
+        padding:80px 24px 40px;
+        text-align:center;
+      }
+      .hero-copy{align-items:center}
+      .hero-sub{margin-left:auto;margin-right:auto}
+      .hero-cta-group{align-items:center}
+      .hero-chips{justify-content:center}
+      .hero-visual{margin-top:16px}
+      .hero-product-img{max-width:280px}
+      .hero-badge.badge-commission{bottom:10%;left:0}
+      .hero-badge.badge-discount{top:10%;right:0}
+    }
+
+    /* ── PILLS ROW ── */
+    .pills-row{
+      background:var(--white);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      padding:18px 48px;
+      display:flex;align-items:center;justify-content:center;
+      gap:10px;flex-wrap:wrap;
+    }
+    .pill{
+      background:var(--pale);color:var(--forest-2);
+      border:1px solid var(--light);
+      font-size:13px;font-weight:500;
+      padding:7px 16px;border-radius:100px;
+      white-space:nowrap;
+    }
+
+    /* ── SECTIONS ── */
+    section{padding:80px 48px;border-bottom:1px solid var(--border)}
+    .container{max-width:760px;margin:0 auto}
+
+    .section-label{
+      font-size:11px;font-weight:500;
+      color:var(--mid);
+      letter-spacing:.1em;text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    h2{
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(28px,4vw,40px);
+      line-height:1.12;letter-spacing:-.02em;
+      color:var(--ink);margin-bottom:16px;
+    }
+    h2 em{font-style:italic;color:var(--mid)}
+    .lead{
+      font-size:17px;color:var(--muted);
+      font-weight:300;max-width:580px;
+      margin-bottom:36px;line-height:1.7;
+    }
+
+    /* ── WHO GRID ── */
+    .who-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+      gap:12px;
+    }
+    .who-card{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:var(--r);
+      padding:22px;
+    }
+    .who-icon{font-size:24px;margin-bottom:10px}
+    .who-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px}
+    .who-body{font-size:13px;color:var(--muted);line-height:1.55;font-weight:300}
+
+    /* ── CALC ── */
+    .calc-bg{background:var(--white)}
+    .calc-card{
+      background:var(--cream);
+      border:1px solid var(--border);
+      border-radius:var(--r);
+      padding:32px;
+    }
+    .slider-group{margin-bottom:26px}
+    .slider-label{
+      display:flex;justify-content:space-between;align-items:center;
+      font-size:13px;color:var(--muted);margin-bottom:10px;
+    }
+    .slider-label strong{color:var(--ink);font-weight:500}
+    input[type=range]{
+      -webkit-appearance:none;width:100%;height:4px;
+      background:var(--light);border-radius:4px;outline:none;
+    }
+    input[type=range]::-webkit-slider-thumb{
+      -webkit-appearance:none;
+      width:20px;height:20px;border-radius:50%;
+      background:var(--bright);cursor:pointer;
+      border:3px solid var(--white);
+      box-shadow:0 2px 6px rgba(0,0,0,.18);
+    }
+    .results-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;
+    }
+    .result-card{
+      background:var(--white);border-radius:8px;padding:18px 20px;
+      border:1px solid var(--border);
+    }
+    .result-card.featured{
+      background:var(--forest);border-color:var(--forest);
+    }
+    .r-label{font-size:11px;color:var(--muted);margin-bottom:4px;letter-spacing:.02em}
+    .result-card.featured .r-label{color:var(--light);opacity:.8}
+    .r-val{font-family:'DM Serif Display',serif;font-size:30px;color:var(--ink);line-height:1}
+    .result-card.featured .r-val{color:var(--white)}
+    .calc-footnote{font-size:11px;color:var(--muted);margin-top:18px;font-weight:300;line-height:1.6}
+
+    /* ── STEPS ── */
+    .steps-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:16px;
+    }
+    .step-card{
+      background:var(--white);border:1px solid var(--border);
+      border-radius:var(--r);padding:28px;
+      border-top:3px solid var(--bright);
+    }
+    .step-num{
+      font-size:11px;font-weight:500;color:var(--mid);
+      letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;
+    }
+    .step-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:8px}
+    .step-body{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300}
+
+    /* ── STATS ── */
+    .white-bg{background:var(--white)}
+    .stats-row{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+      gap:12px;margin-bottom:36px;
+    }
+    .stat-card{
+      background:var(--forest);
+      border-radius:var(--r);
+      padding:24px 26px;
+    }
+    .stat-val{
+      font-family:'DM Serif Display',serif;
+      font-size:34px;color:var(--white);
+      line-height:1;margin-bottom:6px;
+    }
+    .stat-label{font-size:12px;color:var(--light);opacity:.8;font-weight:400}
+
+    /* ── QUOTE ── */
+    .quote-block{
+      background:var(--pale);
+      border-left:3px solid var(--bright);
+      border-radius:0 var(--r) var(--r) 0;
+      padding:28px 32px;
+    }
+    .quote-text{
+      font-family:'DM Serif Display',serif;
+      font-size:19px;font-style:italic;
+      color:var(--forest-2);line-height:1.55;
+      margin-bottom:14px;
+    }
+    .quote-attr{font-size:12px;color:var(--mid);font-weight:500}
+
+    /* ── IDEAS GRID ── */
+    .ideas-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:10px;
+    }
+    .idea-card{
+      background:var(--white);border:1px solid var(--border);
+      border-radius:var(--r);padding:18px 20px;
+      font-size:13px;color:var(--muted);
+      line-height:1.6;font-weight:300;
+    }
+    .idea-card strong{display:block;color:var(--ink);font-weight:500;margin-bottom:4px;font-size:13px}
+
+    /* ── FINAL CTA ── */
+    .final-cta{
+      background:var(--forest);
+      border-bottom:none;
+    }
+    .final-cta .container{text-align:center}
+    .final-cta h2{color:var(--white)}
+    .final-cta h2 em{color:var(--light)}
+    .final-cta .lead{color:rgba(255,255,255,.55);margin:0 auto 36px}
+    .final-cta .hero-note{color:rgba(255,255,255,.35);margin-top:18px}
+    .final-cta .hero-note a{color:var(--light);text-decoration:none}
+    .final-cta .eyebrow{margin-bottom:24px}
+
+    /* ── FOOTER ── */
+    footer{
+      background:var(--forest);
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:24px 48px;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:12px;
+    }
+    .footer-logo img{height:22px;opacity:.55}
+    footer p{font-size:12px;color:rgba(255,255,255,.3)}
+
+    /* ── PRODUCT IMAGE PLACEHOLDER ── */
+    .product-strip{
+      background:var(--pale);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      padding:24px 48px;
+      display:flex;align-items:center;justify-content:center;
+      gap:32px;flex-wrap:wrap;
+    }
+    .product-strip-text{
+      font-family:'DM Serif Display',serif;
+      font-size:18px;color:var(--forest-2);
+      font-style:italic;
+    }
+
+    /* ── UGC REEL ── */
+    .ugc-section{background:var(--white)}
+    .ugc-scroll-outer{
+      overflow:hidden;
+      margin-top:28px;
+      position:relative;
+    }
+    .ugc-scroll-outer::after{
+      content:'';
+      position:absolute;top:0;right:0;width:80px;height:100%;
+      background:linear-gradient(to right,transparent,var(--white));
+      pointer-events:none;
+    }
+    .ugc-reel{
+      display:flex;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom:12px;
+      /* hide scrollbar */
+      scrollbar-width:none;
+    }
+    .ugc-reel::-webkit-scrollbar{display:none}
+    .ugc-card{
+      flex:0 0 168px;
+      scroll-snap-align:start;
+      position:relative;
+      border-radius:14px;
+      overflow:hidden;
+      aspect-ratio:9/16;
+      background:var(--ink);
+      cursor:pointer;
+      text-decoration:none;
+      display:block;
+      transition:transform .25s,box-shadow .25s;
+    }
+    .ugc-card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 14px 32px rgba(0,0,0,.18)}
+    .ugc-card img{
+      width:100%;height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform .4s;
+    }
+    .ugc-card:hover img{transform:scale(1.04)}
+    .ugc-play{
+      position:absolute;top:50%;left:50%;
+      transform:translate(-50%,-50%);
+      width:44px;height:44px;
+      background:rgba(255,255,255,.92);
+      border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      transition:transform .2s,background .2s;
+      box-shadow:0 4px 16px rgba(0,0,0,.25);
+    }
+    .ugc-card:hover .ugc-play{transform:translate(-50%,-50%) scale(1.12);background:var(--white)}
+    .ugc-play svg{margin-left:3px}
+    .ugc-overlay{
+      position:absolute;bottom:0;left:0;right:0;
+      background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 60%);
+      height:60%;
+    }
+    .ugc-cta-row{
+      margin-top:20px;
+      font-size:13px;color:var(--muted);font-weight:300;
+    }
+    .ugc-cta-row a{color:var(--mid);font-weight:500;text-decoration:none}
+    .ugc-cta-row a:hover{text-decoration:underline}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:640px){
+      nav{padding:0 20px}
+      .hero{padding:60px 20px 0}
+      section{padding:60px 20px}
+      .pills-row{padding:16px 20px}
+      footer{padding:20px}
+      .product-strip{padding:20px}
+      .results-grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="https://www.leangreensaffiliate.com/images/lean%20greens%20white%20logo.png" alt="Lean Greens" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-family:'DM Serif Display',serif;font-size:18px;color:#fff;letter-spacing:-.02em">Lean Greens</span>
+  </a>
+  <a href="apply.html" class="nav-cta" id="nav-apply">Apply now</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+
+    <!-- LEFT: copy -->
+    <div class="hero-copy">
+      <div class="eyebrow">Ambassador Programme</div>
+      <h1>Turn your morning<br>routine into<br><em>a side income</em></h1>
+      <p class="hero-sub">Share something you'd actually use. Get 30% off your first order. Earn 10% commission for life on everyone you refer.</p>
+      <div class="hero-cta-group">
+        <a href="apply.html" class="btn-primary" id="hero-apply">Apply now — takes 2 minutes</a>
+        <p class="hero-note">We reply within 48 hours.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: product visual -->
+    <div class="hero-visual">
+      <!-- floating badge: discount -->
+      <div class="hero-badge badge-discount">
+        <div class="badge-val">30%</div>
+        <div class="badge-lbl">off your first order</div>
+      </div>
+      <!-- product -->
+      <img class="hero-product-img"
+        src="https://www.leangreensaffiliate.com/images/CollagenGreens-OnePack-Transparent.png"
+        alt="Lean Greens Collagen Greens">
+      <!-- floating badge: commission -->
+      <div class="hero-badge badge-commission">
+        <div class="badge-val">10%</div>
+        <div class="badge-lbl">commission for life</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PILLS ROW -->
+<div class="pills-row">
+  <span class="pill">30% off your first order</span>
+  <span class="pill">10% lifetime commission</span>
+  <span class="pill">No posting minimums</span>
+  <span class="pill">Audience size is not important</span>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section>
+  <div class="container">
+    <div class="section-label">Who this is for</div>
+    <h2>You don't need a<br><em>fitness following</em></h2>
+    <p class="lead">Lean Greens is for people who want to feel better without making it their whole personality. So are our ambassadors. If your content is about mornings, meals, routines, productivity, or family life — your audience is already our audience.</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon">☀️</div>
+        <div class="who-title">Morning routines</div>
+        <div class="who-body">Daily vlogs, "get ready with me", habit stacking content</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">✍️</div>
+        <div class="who-title">Wellness &amp; habits</div>
+        <div class="who-body">Mindset, self-improvement, health journey creators</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🏡</div>
+        <div class="who-title">Home &amp; family</div>
+        <div class="who-body">Mum creators, home cooking, family nutrition</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">💻</div>
+        <div class="who-title">Work &amp; productivity</div>
+        <div class="who-body">WFH routines, desk setups, focus and energy content</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARNINGS CALCULATOR -->
+<section class="calc-bg">
+  <div class="container">
+    <div class="section-label">What you earn</div>
+    <h2>See what your<br><em>audience is worth</em></h2>
+    <p class="lead">Adjust the sliders to see your estimated earnings. Based on £49 per order, 10% commission.</p>
+    <div class="calc-card">
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>Your followers</span>
+          <strong id="followers-out">2,000</strong>
+        </div>
+        <input type="range" id="followers-slider" min="1000" max="50000" step="500" value="2000" oninput="calcEarnings()">
+      </div>
+      <div class="slider-group" style="margin-bottom:10px">
+        <div class="slider-label">
+          <span>Posts per month mentioning Lean Greens</span>
+          <strong id="posts-out">2</strong>
+        </div>
+        <input type="range" id="posts-slider" min="1" max="12" step="1" value="2" oninput="calcEarnings()">
+      </div>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="r-label">Est. monthly sales</div>
+          <div class="r-val" id="sales-out">4</div>
+        </div>
+        <div class="result-card featured">
+          <div class="r-label">Monthly commission</div>
+          <div class="r-val" id="commission-out">£20</div>
+        </div>
+        <div class="result-card">
+          <div class="r-label">Annual commission</div>
+          <div class="r-val" id="annual-out">£235</div>
+        </div>
+        <div class="result-card">
+          <div class="r-label">Est. 2-year value</div>
+          <div class="r-val" id="ltv-out">£471</div>
+        </div>
+      </div>
+      <p class="calc-footnote">*Estimates based on £49 avg order value, 10% commission, ~1% conversion per post per 1,000 followers. Actual results will vary.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2>Three steps.<br><em>No faff.</em></h2>
+    <div class="steps-grid" style="margin-top:8px">
+      <div class="step-card">
+        <div class="step-num">01 — Apply</div>
+        <div class="step-title">Tell us about your content</div>
+        <div class="step-body">Quick 2-minute application. We reply within 48 hours — and if it's not a fit right now, we'll tell you why.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02 — Get set up</div>
+        <div class="step-title">30% off + your own link</div>
+        <div class="step-body">Try the product yourself first with 30% off your first order. Then get your custom link to our new customer offer to share.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03 — Earn</div>
+        <div class="step-title">10% on every sale, forever</div>
+        <div class="step-body">Every customer you refer earns you 10% commission for life — not just the first purchase. The longer they stay, the more you earn.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY LEAN GREENS -->
+<section class="white-bg">
+  <div class="container">
+    <div class="section-label">Why Lean Greens</div>
+    <h2>A product your audience<br>will <em>actually thank you for</em></h2>
+    <p class="lead">Collagen Greens is £49 — creatine, collagen and greens in one drink, no filler, no inflated price tag.</p>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-val">£49</div>
+        <div class="stat-label">vs AG1 at £79–£109/month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">£4.90</div>
+        <div class="stat-label">Your commission per sale</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">10%</div>
+        <div class="stat-label">For life — not just first purchase</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">"I started recommending it because I've actually used it since 2012. My audience trusts me. I'm not going to put my name behind something overpriced just to earn a few quid."</p>
+      <div class="quote-attr">— Chris Hipsey, Plan B Fitness</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT IDEAS -->
+<section>
+  <div class="container">
+    <div class="section-label">Content ideas</div>
+    <h2>You don't need to<br><em>change how you post</em></h2>
+    <p class="lead">The posts that convert aren't the hard-sell ones. They're the honest, everyday moments your audience already trusts you for.</p>
+    <div class="ideas-grid">
+      <div class="idea-card">
+        <strong>"My morning routine"</strong>
+        Lean Greens as one real step in a routine people already watch
+      </div>
+      <div class="idea-card">
+        <strong>"What I actually eat in a day"</strong>
+        Honest nutrition content — no perfection required
+      </div>
+      <div class="idea-card">
+        <strong>"Is it actually worth it?"</strong>
+        Honest review format. High trust, high conversion
+      </div>
+      <div class="idea-card">
+        <strong>"AG1 for half the price"</strong>
+        Price comparison content. Dominates TikTok right now
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UGC VIDEO REEL -->
+<section class="ugc-section">
+  <div class="container">
+    <div class="section-label">Real people, real results</div>
+    <h2>What ambassadors<br>are already <em>creating</em></h2>
+    <p class="lead">These are the kinds of posts that actually convert — honest, everyday content from real customers. This is what your link could look like.</p>
+    <div class="ugc-scroll-outer">
+      <div class="ugc-reel" id="ugc-reel">
+
+        <a class="ugc-card" href="https://leangreens.com/products/collagen-greens" target="_blank" rel="noopener" aria-label="Watch UGC video 1">
+          <img src="https://cdn.shopify.com/s/files/1/0667/4015/files/preview_images/eafaa723ac60452c882309d5f24d8ed8.thumbnail.0000000000.jpg?v=1768387319" alt="Customer review video" loading="lazy">
+          <div class="ugc-overlay"></div>
+          <div class="ugc-play"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M1 1l12 7-12 7V1z" fill="#1B3D0C"/></svg></div>
+        </a>
+
+        <a class="ugc-card" href="https://leangreens.com/products/collagen-greens" target="_blank" rel="noopener" aria-label="Watch UGC video 2">
+          <img src="https://cdn.shopify.com/s/files/1/0667/4015/files/preview_images/a2748b4e2062479983c380c6ce6254ce.thumbnail.0000000000.jpg?v=1768388093" alt="Customer review video" loading="lazy">
+          <div class="ugc-overlay"></div>
+          <div class="ugc-play"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M1 1l12 7-12 7V1z" fill="#1B3D0C"/></svg></div>
+        </a>
+
+        <a class="ugc-card" href="https://leangreens.com/products/collagen-greens" target="_blank" rel="noopener" aria-label="Watch UGC video 3">
+          <img src="https://cdn.shopify.com/s/files/1/0667/4015/files/preview_images/5c813cbc3d914d2b9673ad310a2decce.thumbnail.0000000000.jpg?v=1764434272" alt="Customer review video" loading="lazy">
+          <div class="ugc-overlay"></div>
+          <div class="ugc-play"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M1 1l12 7-12 7V1z" fill="#1B3D0C"/></svg></div>
+        </a>
+
+        <a class="ugc-card" href="https://leangreens.com/products/collagen-greens" target="_blank" rel="noopener" aria-label="Watch UGC video 4">
+          <img src="https://cdn.shopify.com/s/files/1/0667/4015/files/preview_images/53182b70621b45c7bca2356609d542a5.thumbnail.0000000000.jpg?v=1764016196" alt="Customer review video" loading="lazy">
+          <div class="ugc-overlay"></div>
+          <div class="ugc-play"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M1 1l12 7-12 7V1z" fill="#1B3D0C"/></svg></div>
+        </a>
+
+        <a class="ugc-card" href="https://leangreens.com/products/collagen-greens" target="_blank" rel="noopener" aria-label="Watch UGC video 5">
+          <img src="https://cdn.shopify.com/s/files/1/0667/4015/files/preview_images/976a4286bfc34c82a99f68633e8fe000.thumbnail.0000000000.jpg?v=1768388105" alt="Customer review video" loading="lazy">
+          <div class="ugc-overlay"></div>
+          <div class="ugc-play"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M1 1l12 7-12 7V1z" fill="#1B3D0C"/></svg></div>
+        </a>
+
+      </div>
+    </div>
+    <p class="ugc-cta-row">All filmed by real customers. <a href="https://leangreens.com/products/collagen-greens" target="_blank" rel="noopener">Watch them on the product page →</a></p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="apply">
+  <div class="container">
+    <div class="eyebrow">Apply now</div>
+    <h2>Ready to start <em>earning?</em></h2>
+    <p class="lead">Apply in 2 minutes. Get 30% off your first order. Start earning 10% on every sale you drive — for life.</p>
+    <a href="apply.html" class="btn-primary" id="apply-btn">Apply to be an ambassador</a>
+    <p class="hero-note">Already an ambassador? <a href="#">Log in to your dashboard</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://www.leangreensaffiliate.com/images/lean%20greens%20white%20logo.png" alt="Lean Greens" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-size:13px;color:rgba(255,255,255,.4)">Lean Greens</span>
+  </div>
+  <p>© 2025 Lean Greens. All rights reserved.</p>
+</footer>
+
+<script>
+  function calcEarnings(){
+    var f=parseInt(document.getElementById('followers-slider').value);
+    var p=parseInt(document.getElementById('posts-slider').value);
+    var aov=49,com=0.10;
+    // Original spec: ~4 sales per 2k followers / 2 posts → (followers/1000) * posts
+    var sales=Math.max(1,Math.round((f/1000)*p));
+    var monthly=(sales*aov*com).toFixed(0);
+    var annual=(monthly*12).toFixed(0);
+    var ltv=(annual*2).toFixed(0);
+    document.getElementById('followers-out').textContent=f.toLocaleString();
+    document.getElementById('posts-out').textContent=p;
+    document.getElementById('sales-out').textContent=sales;
+    document.getElementById('commission-out').textContent='£'+parseInt(monthly).toLocaleString();
+    document.getElementById('annual-out').textContent='£'+parseInt(annual).toLocaleString();
+    document.getElementById('ltv-out').textContent='£'+parseInt(ltv).toLocaleString();
+  }
+  calcEarnings();
+</script>
+</body>
+</html>
