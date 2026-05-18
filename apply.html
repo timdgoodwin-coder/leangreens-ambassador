@@ -402,7 +402,7 @@
         <!-- Date of birth -->
         <div class="field">
           <label class="field-label" for="dob">Date of birth <span class="req">*</span></label>
-          <input type="date" id="dob" name="date_of_birth" required>
+          <input type="date" id="dob" name="date_of_birth" value="2008-01-01" required>
         </div>
 
         <hr class="divider">
@@ -541,6 +541,14 @@
 </footer>
 
 <script>
+  // Set DOB max to today minus 18 years (enforces 18+ requirement)
+  (function(){
+    var d = new Date();
+    d.setFullYear(d.getFullYear() - 18);
+    var max = d.toISOString().split('T')[0];
+    document.getElementById('dob').setAttribute('max', max);
+  })();
+
   // Affiliate handle — live slug sanitisation
   const handleInput = document.getElementById('affiliate_handle');
   const preview     = document.getElementById('handle-preview');
