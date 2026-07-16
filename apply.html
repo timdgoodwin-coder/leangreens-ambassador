@@ -128,7 +128,7 @@
       color:var(--ink);margin-bottom:7px;
     }
     label.field-label span.req{color:var(--bright);margin-left:2px}
-    input[type=text],input[type=email],input[type=date],select,textarea{
+    input[type=text],input[type=email],input[type=date],input[type=url],select,textarea{
       width:100%;
       border:1px solid var(--border);
       border-radius:8px;
@@ -140,7 +140,7 @@
       transition:border-color .18s,box-shadow .18s;
       -webkit-appearance:none;appearance:none;
     }
-    input[type=text]:focus,input[type=email]:focus,input[type=date]:focus,select:focus,textarea:focus{
+    input[type=text]:focus,input[type=email]:focus,input[type=date]:focus,input[type=url]:focus,select:focus,textarea:focus{
       border-color:var(--bright);
       box-shadow:0 0 0 3px rgba(106,175,42,.15);
       background:var(--white);
@@ -183,6 +183,24 @@
     .divider{
       border:none;border-top:1px solid var(--border);
       margin:28px 0;
+    }
+
+    /* ── ACKNOWLEDGEMENT CALLOUT ── */
+    .ack-box{
+      background:var(--pale);
+      border:1px solid var(--light);
+      border-radius:var(--r);
+      padding:20px 22px;
+      margin-bottom:28px;
+    }
+    .ack-box p{
+      font-size:14px;color:var(--forest);
+      line-height:1.6;margin-bottom:6px;
+    }
+    .ack-box p strong{color:var(--forest);font-weight:500}
+    .ack-box .ack-prompt{
+      font-size:14px;font-weight:500;color:var(--ink);
+      margin-top:14px;margin-bottom:10px;
     }
 
     /* ── PLATFORM ROW ── */
@@ -309,7 +327,7 @@
 
       /* ── MOBILE FORM TYPOGRAPHY ── */
       /* 16px on inputs prevents iOS auto-zoom */
-      input[type=text],input[type=email],input[type=date],select,textarea{
+      input[type=text],input[type=email],input[type=date],input[type=url],select,textarea{
         font-size:16px;
         padding:13px 14px;
       }
@@ -408,6 +426,14 @@
         <input type="hidden" name="_subject" value="New Lean Greens Ambassador Application">
         <input type="hidden" name="_next" value="">
 
+        <!-- Programme acknowledgement -->
+        <div class="ack-box">
+          <p>This is a <strong>Customer Ambassador programme</strong> designed for real customers to experience our products, and create genuine UGC and social posts based on their experience.</p>
+          <p>This is <strong>NOT a gifting / influencer programme.</strong></p>
+          <p class="ack-prompt">Before applying, please write "I understand" in the box below <span class="req">*</span></p>
+          <input type="text" id="understand" name="acknowledgement" placeholder="I understand" autocomplete="off" required>
+        </div>
+
         <!-- Name row -->
         <div class="field-row">
           <div class="field">
@@ -435,7 +461,7 @@
         <hr class="divider">
 
         <!-- Social platforms -->
-        <div class="section-label" style="margin-bottom:18px">Your platforms</div>
+        <div class="section-label" style="margin-bottom:18px">Your platforms <span style="text-transform:none;letter-spacing:0;font-weight:300;color:var(--muted)">— add at least one profile URL</span></div>
 
         <!-- Instagram -->
         <div class="field">
@@ -443,10 +469,8 @@
             <svg width="16" height="16" viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
             Instagram <span class="badge">Recommended</span>
           </div>
-          <div class="handle-wrap">
-            <span class="handle-prefix">@</span>
-            <input type="text" id="instagram" name="instagram_handle" placeholder="yourhandle">
-          </div>
+          <input type="url" id="instagram" name="instagram_url" placeholder="https://instagram.com/yourusername"
+            autocomplete="off" autocapitalize="off" spellcheck="false">
         </div>
 
         <!-- TikTok -->
@@ -455,10 +479,8 @@
             <svg width="14" height="16" viewBox="0 0 448 512" fill="currentColor"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
             TikTok
           </div>
-          <div class="handle-wrap">
-            <span class="handle-prefix">@</span>
-            <input type="text" id="tiktok" name="tiktok_handle" placeholder="yourhandle">
-          </div>
+          <input type="url" id="tiktok" name="tiktok_url" placeholder="https://tiktok.com/@yourusername"
+            autocomplete="off" autocapitalize="off" spellcheck="false">
         </div>
 
         <!-- YouTube -->
@@ -467,10 +489,8 @@
             <svg width="16" height="12" viewBox="0 0 576 512" fill="currentColor"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
             YouTube / other
           </div>
-          <div class="handle-wrap">
-            <span class="handle-prefix" style="font-size:13px;color:var(--muted)">↗</span>
-            <input type="text" id="youtube" name="youtube_or_other" placeholder="Channel URL or handle">
-          </div>
+          <input type="url" id="youtube" name="youtube_url" placeholder="https://youtube.com/@yourchannel"
+            autocomplete="off" autocapitalize="off" spellcheck="false">
         </div>
 
         <hr class="divider">
@@ -620,6 +640,45 @@
     if (!valid) {
       btn.textContent = 'Please complete all required fields';
       setTimeout(() => btn.textContent = 'Submit my application →', 2500);
+      return;
+    }
+
+    // Acknowledgement — must confirm they understand the programme
+    const understand = document.getElementById('understand');
+    if (!/i\s*understand/i.test(understand.value)) {
+      understand.style.borderColor = '#c0392b';
+      btn.textContent = 'Please write "I understand" to continue';
+      setTimeout(() => btn.textContent = 'Submit my application →', 2500);
+      understand.focus();
+      return;
+    }
+
+    // Social links — at least one required; any provided value must be a valid http(s) URL
+    const socialFields = ['instagram', 'tiktok', 'youtube'];
+    let badUrl = null, anyFilled = false;
+    for (const id of socialFields) {
+      const el = document.getElementById(id);
+      el.style.borderColor = '';
+      const val = el.value.trim();
+      if (val) {
+        anyFilled = true;
+        if (!/^https?:\/\/.+\..+/i.test(val)) {
+          el.style.borderColor = '#c0392b';
+          if (!badUrl) badUrl = el;
+        }
+      }
+    }
+    if (!anyFilled) {
+      socialFields.forEach(id => document.getElementById(id).style.borderColor = '#c0392b');
+      btn.textContent = 'Please add at least one profile URL';
+      setTimeout(() => btn.textContent = 'Submit my application →', 2500);
+      document.getElementById('instagram').focus();
+      return;
+    }
+    if (badUrl) {
+      btn.textContent = 'Please enter a full profile URL (https://…)';
+      setTimeout(() => btn.textContent = 'Submit my application →', 2500);
+      badUrl.focus();
       return;
     }
 
